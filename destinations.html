@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust | Destinations</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                Wanderlust
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="destinations.html">
+                            Destinations
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="addplace.html">
+                            Add Place
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-light py-5">
+
+        <div class="container text-center">
+
+            <h1 class="display-5 fw-bold">
+                Explore India's Best Destinations
+            </h1>
+
+            <p class="lead text-muted">
+                Discover beautiful cities, historical monuments,
+                beaches, hill stations and unforgettable experiences.
+            </p>
+
+            <div class="row justify-content-center mt-4">
+
+                <div class="col-md-6">
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            class="form-control form-control-lg"
+                            placeholder="Search a city...">
+
+                        <button class="btn btn-warning fw-bold">
+                            Search
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!--Destinations card-->
+
+    <div class="container my-5"  id="destinations">
+            <div class=" text-center mb-5">
+                <h2 class="fw-bold text-dark">Featured Destinations</h2>
+            <p class="text-muted">Handpicked Wonderfull location for you.</p>
+            </div>
+            <div class="row g-4" id="card-container">
+                <!--Mumbai Card-->
+                <div class="col-md-4 city-card" data-city="Mumbai">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10">
+                   <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">Mumbai</span>
+                    
+                    <p class="card-text text-muted">Mumbai is the financial capital of India, famous for its colonial architecture, beaches, street food, Bollywood, and vibrant nightlife.</p>
+                    <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="1">
+                        View Details
+                    </button>
+                   </div>
+                </div>
+            </div>
+            <!--Delhi Card-->
+            <div class="col-md-4 city-card" data-city="Delhi">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://assets.cntraveller.in/photos/671a2eb0f88bf53d6351b831/2:1/w_2560%2Cc_limit/GettyImages-1096019794.jpg0">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Delhi</span>
+                        
+                        <p class="card-text text-muted">Delhi is India's capital city, known for its rich history, Mughal monuments, bustling markets, and delicious street food.</p>
+
+                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="2">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--Goa Card-->
+            <div class="col-md-4 city-card" data-city="Goa">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Goa</span>
+                        
+                        <p class="card-text text-muted">Goa is India's beach paradise, famous for its sandy beaches, Portuguese heritage, churches, seafood, and nightlife.</p>
+                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="3">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--Jaipur Card-->
+    <div class="col-md-4 city-card" data-city="Jaipur">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-city-1-hero?qlt=82&ts=1742200253577">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Jaipur</span>
+                
+                <p class="card-text text-muted">Jaipur, the Pink City, is known for its majestic forts, palaces, vibrant bazaars, and rich Rajasthani culture.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="4">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Agra Card-->
+    <div class="col-md-4 city-card" data-city="Agra">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/16/4a/45/a5.jpg">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Agra</span>
+                
+                <p class="card-text text-muted">Agra is home to the iconic Taj Mahal, a UNESCO World Heritage site, and is known for its Mughal architecture and rich history.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="5">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Udaipur Card-->
+    <div class="col-md-4 city-card" data-city="Udaipur">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://preview.redd.it/udaipur-city-palace-16th-century-fort-udaipur-india-v0-rjjjmxwti8z41.png?width=2288&format=png&auto=webp&s=2c921eefd54796b2c1d0d4fd1b421add747aa160">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Udaipur</span>
+                
+                <p class="card-text text-muted">Udaipur, the City of Lakes, is known for its stunning palaces, lakes, and rich cultural heritage.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="6">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Darjeeling Card-->
+    <div class="col-md-4 city-card" data-city="Darjeeling"> 
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVfhXl0zwUQCTEpOU0cSOU3xIcg_4-QKBarL6-e9vkd5l7zb3_ivplLxy&s=10">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Darjeeling</span>
+                
+                <p class="card-text text-muted">Darjeeling, nestled in the Himalayas, is famous for its tea plantations, panoramic views of the mountains, and the Darjeeling Himalayan Railway.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="7">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Shimla Card-->
+    <div class="col-md-4 city-card" data-city="Shimla">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1742171983523">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Shimla</span>
+                
+                <p class="card-text text-muted">Shimla, the capital of Himachal Pradesh, is a hill station known for its colonial architecture, scenic beauty, and pleasant climate.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="8">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--Rishikesh Card-->
+    <div class="col-md-4 city-card" data-city="Rishikesh">
+        <div class="card h-100 shadow-sm border-0">
+            <img src="https://assets.cntraveller.in/photos/6616741d35022694df6d7554/16:9/w_2560%2Cc_limit/D3R4PJ.jpg">
+            <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">Rishikesh</span>
+                
+                <p class="card-text text-muted">Rishikesh, known as the Yoga Capital of the World, is a spiritual destination and a hub for adventure sports on the banks of the Ganges.</p>
+                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="9">
+                    View Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+    </div> 
+            </div>
+    </div>
+
+    <!-- Destination Details Modal -->
+
+<div class="modal fade" id="detailsModal" tabindex="-1">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+
+        <div class="modal-content">
+
+            <div class="modal-header bg-warning">
+
+                <h4 class="modal-title fw-bold" id="modalTitle"></h4>
+
+                <button
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Image -->
+
+                <img
+                    id="modalImage"
+                    class="img-fluid rounded mb-4 w-100"
+                    style="height:300px; object-fit:cover;">
+
+                <!-- Description -->
+
+                <p id="modalDescription" class="text-muted"></p>
+
+                <hr>
+
+                <h5>⭐ Top Attractions</h5>
+
+                <ul id="modalAttractions"></ul>
+
+                <hr>
+
+                <h5>🍴 Famous Food</h5>
+
+                <p id="modalFood"></p>
+
+                <hr>
+
+                <h5>📅 Best Time To Visit</h5>
+
+                <p id="modalTime"></p>
+
+                <hr>
+
+                <h5>💰 Average Budget</h5>
+
+                <p id="modalBudget"></p>
+
+                <hr>
+
+                <h5>🚆 How To Reach</h5>
+
+                <p id="modalReach"></p>
+
+                <hr>
+
+                <h5>🕒 Ideal Trip Duration</h5>
+
+                <p id="modalDuration"></p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Footer -->
+
+    <footer class="bg-dark text-light text-center py-4 mt-5">
+
+        <div class="container">
+
+            <p class="mb-1">
+                © 2026 Wanderlust. All Rights Reserved.
+            </p>
+
+            <small>
+                Designed with ❤️ for Travelers
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+
+        //----------------------------------------
+        // Destination Data
+        //----------------------------------------
+
+        const destinations = {
+
+            1:{
+
+title:"Mumbai",
+
+image:"https://upload.wikimedia.org/wikipedia/commons/5/56/Gateway_of_India_Mumbai.jpg",
+
+description:
+"Mumbai is the financial capital of India, famous for Bollywood, colonial architecture, beaches, shopping and nightlife.",
+
+attractions:[
+"Gateway of India",
+"Marine Drive",
+"Juhu Beach",
+"Elephanta Caves",
+"Siddhivinayak Temple",
+"Chhatrapati Shivaji Maharaj Terminus"
+],
+
+food:"Vada Pav, Pav Bhaji, Bombay Sandwich, Bhel Puri",
+
+time:"October to March",
+
+budget:"₹8,000 – ₹15,000",
+
+reach:"Mumbai is well connected by air, rail and road.",
+
+duration:"3 to 4 Days"
+
+},
+
+            2:{
+
+title:"Delhi",
+
+image:"https://upload.wikimedia.org/wikipedia/commons/f/fc/India_Gate_in_New_Delhi_03-2016.jpg",
+
+description:
+"Delhi is India's capital city, blending ancient heritage with modern attractions.",
+
+attractions:[
+"India Gate",
+"Red Fort",
+"Qutub Minar",
+"Lotus Temple",
+"Akshardham",
+"Humayun's Tomb"
+],
+
+food:"Chole Bhature, Paratha, Kebabs, Chaat",
+
+time:"October to March",
+
+budget:"₹7,000 – ₹14,000",
+
+reach:"Well connected by metro, airport, rail and road.",
+
+duration:"2 to 3 Days"
+
+},
+
+            3:{
+
+title:"Goa",
+
+image:"https://upload.wikimedia.org/wikipedia/commons/0/0c/Goa_beach.jpg",
+
+description:
+"Goa is a state in India known for its beautiful beaches, vibrant nightlife, and Portuguese heritage.",
+
+attractions:[
+"India Gate",
+"Red Fort",
+"Qutub Minar",
+"Lotus Temple",
+"Akshardham",
+"Humayun's Tomb"
+],
+
+food:"Chole Bhature, Paratha, Kebabs, Chaat",
+
+time:"October to March",
+
+budget:"₹7,000 – ₹14,000",
+
+reach:"Well connected by metro, airport, rail and road.",
+
+duration:"2 to 3 Days"
+
+},
+
+            4: {
+
+                title: "Jaipur",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>Hawa Mahal</li>
+
+                    <li>Amber Fort</li>
+
+                    <li>City Palace</li>
+
+                    <li>Jantar Mantar</li>
+
+                    <li>Nahargarh Fort</li>
+
+                    <li>Jal Mahal</li>
+
+                </ul>
+
+                `
+
+            },
+
+            5: {
+
+                title: "Agra",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>Taj Mahal</li>
+
+                    <li>Agra Fort</li>
+
+                    <li>Fatehpur Sikri</li>
+
+                    <li>Mehtab Bagh</li>
+
+                    <li>Itmad-ud-Daulah</li>
+
+                </ul>
+
+                `
+
+            },
+
+            6: {
+
+                title: "Udaipur",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>City Palace</li>
+
+                    <li>Lake Pichola</li>
+
+                    <li>Jag Mandir</li>
+
+                    <li>Fateh Sagar Lake</li>
+
+                    <li>Sajjangarh Palace</li>
+
+                </ul>
+
+                `
+
+            },
+
+            7: {
+
+                title: "Darjeeling",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>Tiger Hill</li>
+
+                    <li>Batasia Loop</li>
+
+                    <li>Peace Pagoda</li>
+
+                    <li>Darjeeling Himalayan Railway</li>
+
+                    <li>Tea Gardens</li>
+
+                </ul>
+
+                `
+
+            },
+
+            8: {
+
+                title: "Shimla",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>The Ridge</li>
+
+                    <li>Mall Road</li>
+
+                    <li>Jakhoo Temple</li>
+
+                    <li>Kufri</li>
+
+                    <li>Christ Church</li>
+
+                </ul>
+
+                `
+
+            },
+
+            9: {
+
+                title: "Rishikesh",
+
+                description: `
+
+                <h5>Top Tourist Attractions</h5>
+
+                <ul>
+
+                    <li>Laxman Jhula</li>
+
+                    <li>Ram Jhula</li>
+
+                    <li>Triveni Ghat</li>
+
+                    <li>Neelkanth Mahadev Temple</li>
+
+                    <li>River Rafting</li>
+
+                </ul>
+
+                `
+
+            }
+
+        };
+
+
+        //----------------------------------------
+        // Modal
+        //----------------------------------------
+
+        const modal = new bootstrap.Modal(document.getElementById("detailsModal"));
+
+        document.querySelectorAll(".view-details-btn").forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const id = this.dataset.id;
+
+                document.getElementById("modalTitle").innerHTML =
+                    destinations[id].title;
+
+                document.getElementById("modalDescription").innerHTML =
+                    destinations[id].description;
+
+                modal.show();
+
+            });
+
+        });
+
+
+
+        //----------------------------------------
+        // Search
+        //----------------------------------------
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        searchInput.addEventListener("keyup", function () {
+
+            const value =
+                this.value.toLowerCase();
+
+            document.querySelectorAll(".city-card").forEach(card => {
+
+                const city =
+                    card.dataset.city.toLowerCase();
+
+                if (city.includes(value)) {
+
+                    card.style.display = "block";
+
+                }
+
+                else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

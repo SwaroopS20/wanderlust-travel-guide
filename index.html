@@ -1,330 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>
-                Wanderlust  1| Your Ultimate Tourist Guide
-        </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="Tourist Guide" content="Welcome to our tourist guide site">
-        <meta name="keywords" content="tourist, guide, travel, destinations, attractions">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width,initial-scale=1'>
+        <title>Wanderlust | Home</title>
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+        <link rel='stylesheet' href='style.css'>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class ="container">
-            <a class="navbar-brand fw-bold" href="index.html">Wanderlust</a>
-
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"> <a class="nav-link active" href="index.html">Home</a> </li>
-                <li class="nav-item"> <a class= "nav-link" href="#destinations">Destinations</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="addplace.html">Add Place</a> </li>
-            </ul>
-        </div>    
+        <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+            <div class='container'>
+                <a class='navbar-brand fw-bold' href='index.html'>Wanderlust</a>
+                <ul class='navbar-nav ms-auto'>
+                    <li class='nav-item'>
+                        <a class='nav-link active' href='index.html'>Home</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='destinations.html'>Destinations</a>
+                    </li>
+                    <li class='nav-item'>
+                        <a class='nav-link' href='addplace.html'>Add Place</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <div class=" bg-light text-center py-5 border-bottom">
-        <div class="container py-5">
-            <h1 class="display-4 fw-bold text-dark">Find Your Next Adventure</h1>
-            <p class="lead text-muted mb-4">Explore top-rated destinations, local attractions and honest user reviews.</p>
-             <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Search for destinations or cities....">
-                    <button class="btn btn-warning fw-bold" type="button">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-       <div class="container my-5"  id="destinations">
-            <div class=" text-center mb-5">
-                <h2 class="fw-bold text-dark">Featured Destinations</h2>
-            <p class="text-muted">Handpicked Wonderfull location for you.</p>
-            </div>
-            <div class="row g-4" id="card-container">
-                <!--Mumbai Card-->
-                <div class="col-md-4 city-card" data-city="Mumbai">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10">
-                   <div class="card-body">
-                    <span class="badge bg-warning text-dark mb-2">Mumbai</span>
-                    
-                    <p class="card-text text-muted">Mumbai is the financial capital of India, famous for its colonial architecture, beaches, street food, Bollywood, and vibrant nightlife.</p>
-                    <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="1">
-                        View Details
-                    </button>
-                   </div>
-                </div>
-            </div>
-            <!--Delhi Card-->
-            <div class="col-md-4 city-card" data-city="Delhi">
-                <div class="card h-100 shadow-sm border-0">
-                    <img src="https://assets.cntraveller.in/photos/671a2eb0f88bf53d6351b831/2:1/w_2560%2Cc_limit/GettyImages-1096019794.jpg0">
-                    <div class="card-body">
-                        <span class="badge bg-warning text-dark mb-2">Delhi</span>
-                        
-                        <p class="card-text text-muted">Delhi is India's capital city, known for its rich history, Mughal monuments, bustling markets, and delicious street food.</p>
 
-                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="2">
-                            View Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--Goa Card-->
-            <div class="col-md-4 city-card" data-city="Goa">
-                <div class="card h-100 shadow-sm border-0">
-                    <img src="https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize">
-                    <div class="card-body">
-                        <span class="badge bg-warning text-dark mb-2">Goa</span>
-                        
-                        <p class="card-text text-muted">Goa is India's beach paradise, famous for its sandy beaches, Portuguese heritage, churches, seafood, and nightlife.</p>
-                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="3">
-                            View Details
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!--Jaipur Card-->
-    <div class="col-md-4 city-card" data-city="Jaipur">
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-city-1-hero?qlt=82&ts=1742200253577">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Jaipur</span>
-                
-                <p class="card-text text-muted">Jaipur, the Pink City, is known for its majestic forts, palaces, vibrant bazaars, and rich Rajasthani culture.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="4">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Agra Card-->
-    <div class="col-md-4 city-card" data-city="Agra">
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/16/4a/45/a5.jpg">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Agra</span>
-                
-                <p class="card-text text-muted">Agra is home to the iconic Taj Mahal, a UNESCO World Heritage site, and is known for its Mughal architecture and rich history.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="5">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-    <!--Udaipur Card-->
-    <div class="col-md-4 city-card" data-city="Udaipur">
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://preview.redd.it/udaipur-city-palace-16th-century-fort-udaipur-india-v0-rjjjmxwti8z41.png?width=2288&format=png&auto=webp&s=2c921eefd54796b2c1d0d4fd1b421add747aa160">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Udaipur</span>
-                
-                <p class="card-text text-muted">Udaipur, the City of Lakes, is known for its stunning palaces, lakes, and rich cultural heritage.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="6">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-    <!--Darjeeling Card-->
-    <div class="col-md-4 city-card" data-city="Darjeeling"> 
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVfhXl0zwUQCTEpOU0cSOU3xIcg_4-QKBarL6-e9vkd5l7zb3_ivplLxy&s=10">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Darjeeling</span>
-                
-                <p class="card-text text-muted">Darjeeling, nestled in the Himalayas, is famous for its tea plantations, panoramic views of the mountains, and the Darjeeling Himalayan Railway.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="7">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-    <!--Shimla Card-->
-    <div class="col-md-4 city-card" data-city="Shimla">
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1742171983523">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Shimla</span>
-                
-                <p class="card-text text-muted">Shimla, the capital of Himachal Pradesh, is a hill station known for its colonial architecture, scenic beauty, and pleasant climate.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="8">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-    <!--Rishikesh Card-->
-    <div class="col-md-4 city-card" data-city="Rishikesh">
-        <div class="card h-100 shadow-sm border-0">
-            <img src="https://assets.cntraveller.in/photos/6616741d35022694df6d7554/16:9/w_2560%2Cc_limit/D3R4PJ.jpg">
-            <div class="card-body">
-                <span class="badge bg-warning text-dark mb-2">Rishikesh</span>
-                
-                <p class="card-text text-muted">Rishikesh, known as the Yoga Capital of the World, is a spiritual destination and a hub for adventure sports on the banks of the Ganges.</p>
-                <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="9">
-                    View Details
-                </button>
-            </div>
-        </div>
-    </div>
-
-</div>
-    </div> 
-    
-    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title fw-bold" id="modalTitle">Destination Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id="modalDescription" class="text-muted"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn2 btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Login Page-->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow-lg border-0">
-            <div class="modal-header bg-warning text-dark">
-                <h5 class="modal-title fw-bold" id="loginModalLabel">Login Required</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4">
-                <p class="text-muted mb-4">Please login to view destination details.</p>
-                <form id="mock-login-form">
-                    <div class="mb-3">
-                        <label class="form-label fw-bold small text-secondary">Email Address</label>
-                        <input type="email" class="form-control" placeholder="Enter your email-id" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label small fw-bold text-secondary">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter Password" required>
+        <section class='bg-light text-center py-5'>
+            <div class='container'>
+                <h1 class='display-4 fw-bold'>Find Your Next Adventure</h1>
+                <p class='lead'>Explore India's most amazing tourist destinations.</p>
+                <div class='row justify-content-center my-4'>
+                    <div class='col-md-6'>
+                        <div class='input-group'>
+                            <input class='form-control form-control-lg' placeholder='Search destinations...'>
+                            <button class='btn btn-warning fw-bold'>Search</button>
                         </div>
-                        <button type="submit" class="btn btn-warning fw-bold w-100 py-2 mt-2">Sign-in</button>
-                        
                     </div>
-                </form>
+                </div>
+                <a href='destinations.html' class='btn btn-warning btn-lg'>Explore Destinations</a>
             </div>
-        </div>
-    </div>
-</div>
+        </section>
+        <section class='container py-5'>
+            <h2 class='text-center'>About Wanderlust</h2>
+            <p class='text-center'>Wanderlust helps travelers discover India's beautiful destinations and plan unforgettable trips.</p>
+        </section>
+        <footer class='bg-dark text-light text-center py-4'>
+            <p>&copy;2026 Wanderlust</p>
+        </footer>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'>
 
-   <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // --- STATE MANAGEMENT ---
-            let isLoggedIn = false; // Tracks if user is authenticated
-            let pendingCardData = null; // Saves clicked destination info temporarily if user needs to login
-
-            // --- BOOTSTRAP MODALS INITIALIZATION ---
-            const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-
-            // --- DOM ELEMENTS SELECTION ---
-            const searchInput = document.querySelector('.input-group input');
-            const searchBtn = document.querySelector('.input-group button');
-            const cards = document.querySelectorAll('.city-card');
-            const detailButtons = document.querySelectorAll('.view-details-btn');
-            const navAuthBtn = document.getElementById('nav-auth-btn');
-            const loginForm = document.getElementById('mock-login-form');
-
-            // --- AUTOMATIC FIRST LOGIN POPUP ---
-            // Opens when the page first loads, but allows clicking 'X' or 'Close' to skip it
-            loginModal.show();
-
-            // --- CARD CLICK INTERACTION WITH LOGIN CHECK ---
-            detailButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const cardBody = this.closest('.card-body');
-                    const badgeTitle = cardBody.querySelector('.badge').innerText;
-                    const placeDesc = cardBody.querySelector('.card-text').innerText;
-
-                    // If not logged in, block access and force Login Popup
-                    if (!isLoggedIn) {
-                        // Store the data so it can automatically open after successful login
-                        pendingCardData = { title: badgeTitle, description: placeDesc };
-                        loginModal.show();
-                    } else {
-                        // If already logged in, show destination profile immediately
-                        document.getElementById('modalTitle').innerText = badgeTitle;
-                        document.getElementById('modalDescription').innerText = placeDesc;
-                        detailsModal.show();
-                    }
-                });
-            });
-
-            // --- SUBMIT LOGIN FORM LOGIC ---
-            loginForm.addEventListener('submit', function (e) {
-                e.preventDefault(); // Stop page refresh
-                isLoggedIn = true;
-                
-                // Update interface to reflect logged-in status
-                if(navAuthBtn) {
-                    navAuthBtn.innerText = "Logout";
-                    navAuthBtn.classList.replace('btn-outline-warning', 'btn-danger');
-                }
-                
-                loginModal.hide(); // Hide login popup completely
-
-                // If user reached login by clicking a card, instantly show that card's details now
-                if (pendingCardData) {
-                    document.getElementById('modalTitle').innerText = pendingCardData.title;
-                    document.getElementById('modalDescription').innerText = pendingCardData.description;
-                    pendingCardData = null; // reset state
-                    setTimeout(() => { detailsModal.show(); }, 400); // Small timeout for smooth animation
-                }
-            });
-
-            // --- NAVBAR BUTTON TOGGLE LOGIC ---
-            if(navAuthBtn) {
-                navAuthBtn.addEventListener('click', function() {
-                    if (isLoggedIn) {
-                        // Log out actions
-                        isLoggedIn = false;
-                        this.innerText = "Login";
-                        this.classList.replace('btn-danger', 'btn-outline-warning');
-                    } else {
-                        loginModal.show();
-                    }
-                });
-            }
-
-            // --- LIVE SEARCH FILTER LOGIC (FIXED) ---
-            function filterPlaces() {
-                const searchText = searchInput.value.toLowerCase().trim();
-                cards.forEach(card => {
-                    const cityName = card.getAttribute('data-city').toLowerCase();
-                    if (cityName.includes(searchText) || searchText === "") {
-                        card.style.setProperty('display', 'block', 'important'); // Fixed line here
-                        card.classList.remove('d-none');
-                    } else {
-                        card.classList.add('d-none');
-                    }
-                });
-            }
-
-            if (searchBtn && searchInput) {
-                searchBtn.addEventListener('click', filterPlaces);
-                searchInput.addEventListener('keyup', function (event) {
-                    if (event.key === "Enter") filterPlaces();
-                });
-            }
-        });
-    </script>
-
-  <footer class="bg-dark text-light py-4 mt-5">
-    <div class="container text-center">
-        <p class="mb-0">&copy; 2026 Wanderlust. All rights reserved.</p>
-        <small class="text-white">Designed with ❤️ for travelers.</small>
-    </div> </footer>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>      
-    </body>
-</html>
+        </script>
+         
+        </body>
+        </html>
