@@ -210,6 +210,7 @@
                         <input type="password" class="form-control" placeholder="Enter Password" required>
                         </div>
                         <button type="submit" class="btn btn-warning fw-bold w-100 py-2 mt-2">Sign-in</button>
+                        
                     </div>
                 </form>
             </div>
@@ -217,7 +218,7 @@
     </div>
 </div>
 
-    <script>
+   <script>
         document.addEventListener("DOMContentLoaded", function () {
             // --- STATE MANAGEMENT ---
             let isLoggedIn = false; // Tracks if user is authenticated
@@ -266,10 +267,12 @@
                 isLoggedIn = true;
                 
                 // Update interface to reflect logged-in status
-                navAuthBtn.innerText = "Logout";
-                navAuthBtn.classList.replace('btn-outline-warning', 'btn-danger');
+                if(navAuthBtn) {
+                    navAuthBtn.innerText = "Logout";
+                    navAuthBtn.classList.replace('btn-outline-warning', 'btn-danger');
+                }
                 
-                loginModal.hide(); // Hide login popup
+                loginModal.hide(); // Hide login popup completely
 
                 // If user reached login by clicking a card, instantly show that card's details now
                 if (pendingCardData) {
@@ -281,24 +284,26 @@
             });
 
             // --- NAVBAR BUTTON TOGGLE LOGIC ---
-            navAuthBtn.addEventListener('click', function() {
-                if (isLoggedIn) {
-                    // Log out actions
-                    isLoggedIn = false;
-                    this.innerText = "Login";
-                    this.classList.replace('btn-danger', 'btn-outline-warning');
-                } else {
-                    loginModal.show();
-                }
-            });
+            if(navAuthBtn) {
+                navAuthBtn.addEventListener('click', function() {
+                    if (isLoggedIn) {
+                        // Log out actions
+                        isLoggedIn = false;
+                        this.innerText = "Login";
+                        this.classList.replace('btn-danger', 'btn-outline-warning');
+                    } else {
+                        loginModal.show();
+                    }
+                });
+            }
 
-            // --- LIVE SEARCH FILTER LOGIC ---
+            // --- LIVE SEARCH FILTER LOGIC (FIXED) ---
             function filterPlaces() {
                 const searchText = searchInput.value.toLowerCase().trim();
                 cards.forEach(card => {
                     const cityName = card.getAttribute('data-city').toLowerCase();
                     if (cityName.includes(searchText) || searchText === "") {
-                        card.style.style.setProperty('display', 'block', 'important');
+                        card.style.setProperty('display', 'block', 'important'); // Fixed line here
                         card.classList.remove('d-none');
                     } else {
                         card.classList.add('d-none');
@@ -306,12 +311,13 @@
                 });
             }
 
-            searchBtn.addEventListener('click', filterPlaces);
-            searchInput.addEventListener('keyup', function (event) {
-                if (event.key === "Enter") filterPlaces();
-            });
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', filterPlaces);
+                searchInput.addEventListener('keyup', function (event) {
+                    if (event.key === "Enter") filterPlaces();
+                });
+            }
         });
-
     </script>
 
   <footer class="bg-dark text-light py-4 mt-5">
