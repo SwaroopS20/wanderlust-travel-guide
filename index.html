@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+                Wanderlust | Your Ultimate Tourist Guide
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Tourist Guide" content="Welcome to our tourist guide site">
+        <meta name="keywords" content="tourist, guide, travel, destinations, attractions">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class ="container">
+            <a class="navbar-brand fw-bold" href="index.html">Wanderlust</a>
+
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"> <a class="nav-link active" href="index.html">Home</a> </li>
+                <li class="nav-item"> <a class= "nav-link" href="#destinations">Destinations</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="addplace.html">Add Place</a> </li>
+            </ul>
+        </div>    
+        </nav>
+        <div class=" bg-light text-center py-5 border-bottom">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold text-dark">Find Your Next Adventure</h1>
+            <p class="lead text-muted mb-4">Explore top-rated destinations, local attractions and honest user reviews.</p>
+             <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg" placeholder="Search for destinations or cities....">
+                    <button class="btn btn-warning fw-bold" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="container my-5"  id="destinations">
+            <div class=" text-center mb-5">
+                <h2 class="fw-bold text-dark">Featured Destinations</h2>
+            <p class="text-muted">Handpicked Wonderfull location for you.</p>
+            </div>
+            <div class="row g-4" id="card-container">
+                <!--Mumbai Card-->
+                <div class="col-md-4 city-card" data-city="Mumbai">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10">
+                   <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">Mumbai</span>
+                    <h5 class="card-title fw-bold">Gateway of India </h5>
+                    <p class="card-text text-muted">A magnificent, iconic historical arch monument overlooking the Arabian Sea.</p>
+                    <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="1">
+                        View Details
+                    </button>
+                   </div>
+                </div>
+            </div>
+            <!--Delhi Card-->
+            <div class="col-md-4 city-card" data-city="Delhi">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT43_Hy7cW6lVIUs-wmsShwopCoHX-dm3ooLXSGNvMGnA&s=10">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Delhi</span>
+                        <h5 class="card-title fw-bold">Taj Mahal</h5>
+                        <p class="card-text text-muted">The Taj Mahal is a magnificent white marble mausoleum, a timeless symbol of love, and one of the Seven Wonders of the World.
+</p>
+                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="2">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--Goa Card-->
+            <div class="col-md-4 city-card" data-city="Goa">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Goa</span>
+                        <h5 class="card-title fw-bold">Baga Beach</h5>
+                        <p class="card-text text-muted">Baga Beach is one of Goa's most popular beaches, famous for its golden sands, thrilling water sports, and vibrant nightlife.
+                        </p>
+                        <button class="btn btn-outline-dark btn-sm view-details-btn" data-id="3">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalTitle">Destination Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription" class="text-muted"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn2 btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+
+    </script>
+
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-0">&copy; 2026 Wanderlust. All rights reserved.</p>
+        <small class="text-white">Designed with ❤️ for travelers.</small>
+    </div> </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>      
+    </body>
+</html>
