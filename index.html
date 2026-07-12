@@ -1,56 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width,initial-scale=1'>
-        <title>Wanderlust | Home</title>
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-        <link rel='stylesheet' href='style.css'>
-    </head>
-    <body>
-        <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
-            <div class='container'>
-                <a class='navbar-brand fw-bold' href='index.html'>Wanderlust</a>
-                <ul class='navbar-nav ms-auto'>
-                    <li class='nav-item'>
-                        <a class='nav-link active' href='index.html'>Home</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='destinations.html'>Destinations</a>
-                    </li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='addplace.html'>Add Place</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Wanderlust | Home</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+        <div class='container'>
+            <a class='navbar-brand fw-bold' href='index.html'>Wanderlust</a>
+            <ul class='navbar-nav ms-auto'>
+                <li class='nav-item'>
+                    <a class='nav-link active' href='index.html'>Home</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='destinations.html'>Destinations</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='addplace.html'>Add Place</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-        <section class='bg-light text-center py-5'>
-            <div class='container'>
-                <h1 class='display-4 fw-bold'>Find Your Next Adventure</h1>
-                <p class='lead'>Explore India's most amazing tourist destinations.</p>
-                <div class='row justify-content-center my-4'>
-                    <div class='col-md-6'>
-                        <div class='input-group'>
-                            <input class='form-control form-control-lg' placeholder='Search destinations...'>
-                            <button class='btn btn-warning fw-bold'>Search</button>
-                        </div>
+    <section class='bg-light text-center py-5'>
+        <div class='container'>
+            <h1 class='display-4 fw-bold'>Find Your Next Adventure</h1>
+            <p class='lead'>Explore India's most amazing tourist destinations.</p>
+            <div class='row justify-content-center my-4'>
+                <div class='col-md-6'>
+                    <div class='input-group'>
+                        <input class='form-control form-control-lg' placeholder='Search destinations...'>
+                        <button class='btn btn-warning fw-bold'>Search</button>
                     </div>
                 </div>
-                <a href='destinations.html' class='btn btn-warning btn-lg'>Explore Destinations</a>
             </div>
-        </section>
-        <section class='container py-5'>
-            <h2 class='text-center'>About Wanderlust</h2>
-            <p class='text-center'>Wanderlust helps travelers discover India's beautiful destinations and plan unforgettable trips.</p>
-        </section>
-        <footer class='bg-dark text-light text-center py-4'>
-            <p>&copy;2026 Wanderlust. All Rights Reserved.</p>
-            <small> Designed with ❤️ for Travelers</small>     
-           </footer>
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'>
+            <a href='destinations.html' class='btn btn-warning btn-lg'>Explore Destinations</a>
+        </div>
+    </section>
 
-        </script>
-         
-        </body>
-        </html>
+    <section class='container py-5'>
+        <h2 class='text-center'>About Wanderlust</h2>
+        <p class='text-center'>Wanderlust helps travelers discover India's beautiful destinations and plan unforgettable trips.</p>
+    </section>
+
+    <!-- Optional Home Login Modal -->
+    <div class="modal fade" id="homeLoginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Welcome to Wanderlust!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">Log in now to unlock premium city details, budgets, and hidden travel guides!</p>
+                    <form id="homeLoginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class='bg-dark text-light text-center py-4'>
+        <p>&copy;2026 Wanderlust. All Rights Reserved.</p>
+        <small> Designed with ❤️ for Travelers</small>     
+    </footer>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if user has already logged in previously
+            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            
+            // If they haven't logged in, pop up the window (they can close it if they want)
+            if (!isLoggedIn) {
+                const homeModal = new bootstrap.Modal(document.getElementById('homeLoginModal'));
+                homeModal.show();
+            }
+
+            // Handle submission
+            document.getElementById("homeLoginForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                localStorage.setItem("isLoggedIn", "true");
+                bootstrap.Modal.getInstance(document.getElementById('homeLoginModal')).hide();
+                alert("Successfully logged in! Enjoy exploring destinations.");
+            });
+        });
+    </script>
+</body>
+</html>
