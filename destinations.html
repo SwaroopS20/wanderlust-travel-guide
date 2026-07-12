@@ -151,27 +151,57 @@
         </div>
     </div>
 
-    <!-- Required Login Gate Modal -->
+    <!-- Required Auth Gate Modal (With Login & Signup Tabs) -->
     <div class="modal fade" id="destLoginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title fw-bold">Login Required</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                <div class="modal-header bg-dark border-0 pb-0">
+                    <ul class="nav nav-tabs w-100" id="destAuthTabs" role="tablist">
+                        <li class="nav-item w-50">
+                            <button class="nav-link active text-dark bg-light fw-bold w-100" id="dest-login-tab" data-bs-toggle="tab" data-bs-target="#dest-login-panel" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item w-50">
+                            <button class="nav-link text-white fw-bold w-100" id="dest-signup-tab" data-bs-toggle="tab" data-bs-target="#dest-signup-panel" type="button" role="tab">Sign Up</button>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <p class="text-danger fw-semibold">You need to log in to access the complete details for this city.</p>
-                    <form id="destLoginForm">
-                        <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" placeholder="enter your email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
-                        </div>
-                        <button type="submit" class="btn btn-warning w-100 fw-bold">Login & View Details</button>
-                    </form>
+                <div class="modal-body tab-content">
+                    <!-- Login Subpanel -->
+                    <div class="tab-pane fade show active" id="dest-login-panel" role="tabpanel">
+                        <p class="text-danger fw-semibold small mt-2">Log in to view the budget, attractions, and optimal durations.</p>
+                        <form id="destLoginForm">
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="destLoginEmail" class="form-control" placeholder="enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" id="destLoginPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Login & View Details</button>
+                        </form>
+                    </div>
+
+                    <!-- Sign Up Subpanel -->
+                    <div class="tab-pane fade" id="dest-signup-panel" role="tabpanel">
+                        <p class="text-muted small mt-2">Sign up instantly to unlock the entire destinations directory.</p>
+                        <form id="destSignupForm">
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="destSignName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="destSignEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Create Password</label>
+                                <input type="password" id="destSignPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Register & Continue</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,45 +254,90 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const destinations = {
-            1:{ title:"Mumbai", image:"mumbai.png", description:"Mumbai is the financial capital of India, famous for Bollywood, colonial architecture, beaches, shopping and nightlife.", attractions:["Gateway of India","Marine Drive","Juhu Beach","Elephanta Caves","Siddhivinayak Temple","Chhatrapati Shivaji Maharaj Terminus"], food:"Vada Pav, Pav Bhaji, Bombay Sandwich, Bhel Puri", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Mumbai is well connected by air, rail and road.", duration:"3 to 4 Days" },
-            2:{ title:"Delhi", image:"delhi.png", description:"Delhi is India's capital city, blending ancient heritage with modern attractions.", attractions:["India Gate","Red Fort","Qutub Minar","Lotus Temple","Akshardham","Humayun's Tomb"], food:"Chole Bhature, Paratha, Kebabs, Chaat", time:"October to March", budget:"₹7,000 – ₹14,000", reach:"Well connected by metro, airport, rail and road.", duration:"2 to 3 Days" },
-            3:{ title:"Goa", image:"goa.png", description:"Goa is India's beach paradise, famous for sandy beaches, Portuguese heritage, seafood and nightlife.", attractions:["Baga Beach","Calangute Beach","Dudhsagar Falls","Fort Aguada","Basilica of Bom Jesus","Anjuna Beach"], food:"Goan Fish Curry, Prawn Balchao, Bebinca, Vindaloo", time:"November to February", budget:"₹10,000 – ₹18,000", reach:"Goa is connected by Dabolim & Mopa Airport, railways and highways.", duration:"3 to 5 Days" },
-            4:{ title:"Jaipur", image:"jaipur.png", description:"Jaipur, the Pink City of India, is famous for royal palaces, forts, colorful markets and Rajasthani culture.", attractions:["Hawa Mahal","Amber Fort","City Palace","Jantar Mantar","Nahargarh Fort","Jal Mahal"], food:"Dal Baati Churma, Ghewar, Kachori, Laal Maas", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Connected by Jaipur International Airport, railway and highways.", duration:"2 to 3 Days" },
-            5:{ title:"Agra", image:"agra.png", description:"Agra is home to the iconic Taj Mahal and is famous for Mughal architecture and history.", attractions:["Taj Mahal","Agra Fort","Fatehpur Sikri","Mehtab Bagh","Itmad-ud-Daulah"], food:"Petha, Bedai, Mughlai Cuisine, Dalmoth", time:"October to March", budget:"₹6,000 – ₹12,000", reach:"Well connected by airport, railway and Yamuna Expressway.", duration:"2 Days" },
-            6:{ title:"Udaipur", image:"udaipur.png", description:"Udaipur, the City of Lakes, is famous for royal palaces, lakes and romantic views.", attractions:["City Palace","Lake Pichola","Jag Mandir","Fateh Sagar Lake","Sajjangarh Palace"], food:"Dal Baati, Gatte Ki Sabzi, Kachori", time:"September to March", budget:"₹8,000 – ₹16,000", reach:"Connected by Maharana Pratap Airport, railway and road.", duration:"2 to 3 Days" },
-            7:{ title:"Darjeeling", image:"darjeeling.png", description:"Darjeeling is famous for tea gardens, Himalayan views and toy train rides.", attractions:["Tiger Hill","Batasia Loop","Tea Gardens","Peace Pagoda","Toy Train"], food:"Momos, Thukpa, Noodles, Tea", time:"March to May & October to December", budget:"₹9,000 – ₹17,000", reach:"Nearest airport is Bagdogra, then taxi/train.", duration:"3 Days" },
-            8:{ title:"Shimla", image:"shimla.png", description:"Shimla is a beautiful hill station famous for snow, colonial buildings and scenic mountains.", attractions:["The Ridge","Mall Road","Jakhoo Temple","Kufri","Christ Church"], food:"Madra, Siddu, Chha Gosht", time:"March to June & December to February", budget:"₹8,000 – ₹15,000", reach:"Connected by road, Kalka-Shimla railway and nearby airport.", duration:"3 Days" },
-            9:{ title:"Rishikesh", image:"rishikesh.png", description:"Rishikesh is known as the Yoga Capital of the World and is famous for river rafting and spirituality.", attractions:["Laxman Jhula","Ram Jhula","Triveni Ghat","Neelkanth Temple","River Rafting"], food:"Aloo Puri, Chole Bhature, Lassi, North Indian Thali", time:"September to April", budget:"₹6,000 – ₹12,000", reach:"Nearest airport is Dehradun; well connected by road and rail.", duration:"2 to 3 Days" }
+            1:{ title:"Mumbai", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10", description:"Mumbai is the financial capital of India, famous for Bollywood, colonial architecture, beaches, shopping and nightlife.", attractions:["Gateway of India","Marine Drive","Juhu Beach","Elephanta Caves","Siddhivinayak Temple","Chhatrapati Shivaji Maharaj Terminus"], food:"Vada Pav, Pav Bhaji, Bombay Sandwich, Bhel Puri", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Mumbai is well connected by air, rail and road.", duration:"3 to 4 Days" },
+            2:{ title:"Delhi", image:"https://assets.cntraveller.in/photos/671a2eb0f88bf53d6351b831/2:1/w_2560%2Cc_limit/GettyImages-1096019794.jpg", description:"Delhi is India's capital city, blending ancient heritage with modern attractions.", attractions:["India Gate","Red Fort","Qutub Minar","Lotus Temple","Akshardham","Humayun's Tomb"], food:"Chole Bhature, Paratha, Kebabs, Chaat", time:"October to March", budget:"₹7,000 – ₹14,000", reach:"Well connected by metro, airport, rail and road.", duration:"2 to 3 Days" },
+            3:{ title:"Goa", image:"https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize", description:"Goa is India's beach paradise, famous for sandy beaches, Portuguese heritage, seafood and nightlife.", attractions:["Baga Beach","Calangute Beach","Dudhsagar Falls","Fort Aguada","Basilica of Bom Jesus","Anjuna Beach"], food:"Goan Fish Curry, Prawn Balchao, Bebinca, Vindaloo", time:"November to February", budget:"₹10,000 – ₹18,000", reach:"Goa is connected by Dabolim & Mopa Airport, railways and highways.", duration:"3 to 5 Days" },
+            4:{ title:"Jaipur", image:"https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-city-1-hero?qlt=82&ts=1742200253577", description:"Jaipur, the Pink City of India, is famous for royal palaces, forts, colorful markets and Rajasthani culture.", attractions:["Hawa Mahal","Amber Fort","City Palace","Jantar Mantar","Nahargarh Fort","Jal Mahal"], food:"Dal Baati Churma, Ghewar, Kachori, Laal Maas", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Connected by Jaipur International Airport, railway and highways.", duration:"2 to 3 Days" },
+            5:{ title:"Agra", image:"https://media.tacdn.com/media/attractions-splice-spp-674x446/16/4a/45/a5.jpg", description:"Agra is home to the iconic Taj Mahal and is famous for Mughal architecture and history.", attractions:["Taj Mahal","Agra Fort","Fatehpur Sikri","Mehtab Bagh","Itmad-ud-Daulah"], food:"Petha, Bedai, Mughlai Cuisine, Dalmoth", time:"October to March", budget:"₹6,000 – ₹12,000", reach:"Well connected by airport, railway and Yamuna Expressway.", duration:"2 Days" },
+            6:{ title:"Udaipur", image:"https://preview.redd.it/udaipur-city-palace-16th-century-fort-udaipur-india-v0-rjjjmxwti8z41.png?width=2288&format=png&auto=webp&s=2c921eefd54796b2c1d0d4fd1b421add747aa160", description:"Udaipur, the City of Lakes, is famous for royal palaces, lakes and romantic views.", attractions:["City Palace","Lake Pichola","Jag Mandir","Fateh Sagar Lake","Sajjangarh Palace"], food:"Dal Baati, Gatte Ki Sabzi, Kachori", time:"September to March", budget:"₹8,000 – ₹16,000", reach:"Connected by Maharana Pratap Airport, railway and road.", duration:"2 to 3 Days" },
+            7:{ title:"Darjeeling", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVfhXl0zwUQCTEpOU0cSOU3xIcg_4-QKBarL6-e9vkd5l7zb3_ivplLxy&s=10", description:"Darjeeling is famous for tea gardens, Himalayan views and toy train rides.", attractions:["Tiger Hill","Batasia Loop","Tea Gardens","Peace Pagoda","Toy Train"], food:"Momos, Thukpa, Noodles, Tea", time:"March to May & October to December", budget:"₹9,000 – ₹17,000", reach:"Nearest airport is Bagdogra, then taxi/train.", duration:"3 Days" },
+            8:{ title:"Shimla", image:"https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1742171983523", description:"Shimla is a beautiful hill station famous for snow, colonial buildings and scenic mountains.", attractions:["The Ridge","Mall Road","Jakhoo Temple","Kufri","Christ Church"], food:"Madra, Siddu, Chha Gosht", time:"March to June & December to February", budget:"₹8,000 – ₹15,000", reach:"Connected by road, Kalka-Shimla railway and nearby airport.", duration:"3 Days" },
+            9:{ title:"Rishikesh", image:"https://assets.cntraveller.in/photos/6616741d35022694df6d7554/16:9/w_2560%2Cc_limit/D3R4PJ.jpg", description:"Rishikesh is known as the Yoga Capital of the World and is famous for river rafting and spirituality.", attractions:["Laxman Jhula","Ram Jhula","Triveni Ghat","Neelkanth Temple","River Rafting"], food:"Aloo Puri, Chole Bhature, Lassi, North Indian Thali", time:"September to April", budget:"₹6,000 – ₹12,000", reach:"Nearest airport is Dehradun; well connected by road and rail.", duration:"2 to 3 Days" }
         };
 
-        // Track variables
         let pendingCardId = null; 
         const detailsModal = new bootstrap.Modal(document.getElementById("detailsModal"));
         const destLoginModal = new bootstrap.Modal(document.getElementById("destLoginModal"));
+
+        function getUsersFromStorage() {
+            const users = localStorage.getItem("mock_users");
+            return users ? JSON.parse(users) : [];
+        }
 
         // Click Handler for Cards
         document.querySelectorAll(".view-details-btn").forEach(button => {
             button.addEventListener("click", function () {
                 const currentId = this.dataset.id;
-                const authenticated = localStorage.getItem("isLoggedIn") === "true";
+                const authenticated = sessionStorage.getItem("isLoggedIn") === "true";
 
                 if (authenticated) {
                     showDetails(currentId);
                 } else {
-                    pendingCardId = currentId; // Save what they were looking for!
+                    pendingCardId = currentId; 
                     destLoginModal.show();
                 }
             });
         });
 
-        // Destination Form Login Event
-        document.getElementById("destLoginForm").addEventListener("submit", function(e) {
+        // HANDLE DESTINATIONS REGISTRATION
+        document.getElementById("destSignupForm").addEventListener("submit", function(e) {
             e.preventDefault();
-            
-            localStorage.setItem("isLoggedIn", "true");
+            const name = document.getElementById("destSignName").value;
+            const email = document.getElementById("destSignEmail").value.toLowerCase().trim();
+            const password = document.getElementById("destSignPassword").value;
+
+            let userList = getUsersFromStorage();
+
+            if (userList.some(user => user.email === email)) {
+                alert("This email is already registered. Try logging in!");
+                return;
+            }
+
+            userList.push({ fullname: name, email: email, password: password });
+            localStorage.setItem("mock_users", JSON.stringify(userList));
+
+            // Log them in instantly on signup completion
+            sessionStorage.setItem("isLoggedIn", "true");
             destLoginModal.hide();
 
-            // Success redirect back to the page contents they wanted!
+            if (pendingCardId) {
+                showDetails(pendingCardId);
+                pendingCardId = null;
+            }
+        });
+
+        // HANDLE DESTINATIONS LOGIN VERIFICATION
+        document.getElementById("destLoginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = document.getElementById("destLoginEmail").value.toLowerCase().trim();
+            const password = document.getElementById("destLoginPassword").value;
+
+            let userList = getUsersFromStorage();
+            const matchedUser = userList.find(user => user.email === email);
+
+            if (!matchedUser) {
+                alert("Account not found. Please click on the Sign Up tab to create one!");
+                return;
+            }
+
+            if (matchedUser.password !== password) {
+                alert("Invalid password credential.");
+                return;
+            }
+            
+            sessionStorage.setItem("isLoggedIn", "true");
+            destLoginModal.hide();
+
             if (pendingCardId) {
                 showDetails(pendingCardId);
                 pendingCardId = null; 
