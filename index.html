@@ -45,28 +45,58 @@
         <h2 class='text-center'>About Wanderlust</h2>
         <p class='text-center'>Wanderlust helps travelers discover India's beautiful destinations and plan unforgettable trips.</p>
     </section>
-
-    <!-- Optional Home Login Modal -->
+    <!-- Combined Home Authentication Modal -->
     <div class="modal fade" id="homeLoginModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold">Welcome to Wanderlust!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header border-0 pb-0">
+                    <!-- Nav Tabs acting as the switcher -->
+                    <ul class="nav nav-tabs w-100" id="authTabs" role="tablist">
+                        <li class="nav-item w-50" role="presentation">
+                            <button class="nav-link active w-100 fw-bold" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item w-50" role="presentation">
+                            <button class="nav-link w-100 fw-bold" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-panel" type="button" role="tab">Sign Up</button>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <p class="text-muted">Log in now to unlock premium city details, budgets, and hidden travel guides!</p>
-                    <form id="homeLoginForm">
-                        <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" placeholder="name@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="••••••••" required>
-                        </div>
-                        <button type="submit" class="btn btn-warning w-100 fw-bold">Login</button>
-                    </form>
+                <div class="modal-body tab-content" id="authTabsContent">
+                    <!-- Login Panel -->
+                    <div class="tab-pane fade show active" id="login-panel" role="tabpanel">
+                        <p class="text-muted small mt-2">Log in to unlock premium city details and hidden travel guides!</p>
+                        <form id="homeLoginForm">
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="homeLoginEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" id="homeLoginPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Login</button>
+                        </form>
+                    </div>
+
+                    <!-- Sign Up Panel (Matches your MySQL columns!) -->
+                    <div class="tab-pane fade" id="signup-panel" role="tabpanel">
+                        <p class="text-muted small mt-2">Create a new account to join the Wanderlust community.</p>
+                        <form id="homeSignupForm">
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="homeSignName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="homeSignEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Create Password</label>
+                                <input type="password" id="homeSignPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark w-100 fw-bold">Register Account</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,23 +110,79 @@
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Check if user has already logged in previously
-            const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+            // Check session state
+            const currentSession = sessionStorage.getItem("isLoggedIn") === "true";
             
-            // If they haven't logged in, pop up the window (they can close it if they want)
-            if (!isLoggedIn) {
+            if (!currentSession) {
                 const homeModal = new bootstrap.Modal(document.getElementById('homeLoginModal'));
                 homeModal.show();
             }
 
-            // Handle submission
+            // --- DATABASE SIMULATION LOGIC ---
+            // Fetch users array from storage or initialize an empty one
+            function getUsersFromStorage() {
+                const users = localStorage.getItem("mock_users");
+                return users ? JSON.parse(users) : [];
+            }
+
+            // SIGN UP ACTION
+            document.getElementById("homeSignupForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const name = document.getElementById("homeSignName").value;
+                const email = document.getElementById("homeSignEmail").value.toLowerCase().trim();
+                const password = document.getElementById("homeSignPassword").value;
+
+                let userList = getUsersFromStorage();
+
+                // Check if user already exists (Simulating MySQL UNIQUE constraint)
+                const userExists = userList.some(user => user.email === email);
+                if (userExists) {
+                    alert("An account with this email already exists! Please log in.");
+                    return;
+                }
+
+                // Append new record (Simulating INSERT INTO users)
+                userList.push({ fullname: name, email: email, password: password });
+                localStorage.setItem("mock_users", JSON.stringify(userList));
+
+                alert("Account created successfully! Switching you to login tab.");
+                // Switch tabs programmatically to login
+                const loginTab = new bootstrap.Tab(document.getElementById('login-tab'));
+                loginTab.show();
+                
+                // Prefill the email to make it smooth
+                document.getElementById("homeLoginEmail").value = email;
+            });
+
+            // LOGIN ACTION
             document.getElementById("homeLoginForm").addEventListener("submit", function(e) {
                 e.preventDefault();
-                localStorage.setItem("isLoggedIn", "true");
+                const email = document.getElementById("homeLoginEmail").value.toLowerCase().trim();
+                const password = document.getElementById("homeLoginPassword").value;
+
+                let userList = getUsersFromStorage();
+
+                // Find matching user record (Simulating SELECT * FROM users WHERE email = ...)
+                const matchedUser = userList.find(user => user.email === email);
+
+                if (!matchedUser) {
+                    alert("No account found with this email. Please Sign Up first!");
+                    return;
+                }
+
+                if (matchedUser.password !== password) {
+                    alert("Incorrect password. Please try again.");
+                    return;
+                }
+
+                // If authentication passes
+                sessionStorage.setItem("isLoggedIn", "true");
                 bootstrap.Modal.getInstance(document.getElementById('homeLoginModal')).hide();
-                alert("Successfully logged in! Enjoy exploring destinations.");
+                alert(`Welcome back, ${matchedUser.fullname}!`);
             });
         });
     </script>
+
+    
 </body>
 </html>
