@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanderlust | My Places</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{background:#f8f9fa}
+.navbar,.footer{background:#212529}
+.hero{background:linear-gradient(135deg,#212529,#495057);color:#fff;padding:55px 0}
+.card{border:none;border-radius:18px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,.15)}
+.card img{height:210px;object-fit:cover}
+.badge-place{background:#ffc107;color:#000}
+.remove-btn{width:100%}
+.empty{padding:70px 20px;text-align:center;color:#777}
+.summary{background:#fff;border-radius:16px;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">Wanderlust</a>
+<div class="ms-auto d-flex gap-2">
+<a href="destinations.html" class="btn btn-warning fw-bold">← Explore Destinations</a>
+<button id="logoutBtn" class="btn btn-outline-light">Logout</button>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container text-center">
+<h1 class="display-5 fw-bold">My Added Places</h1>
+<p>Create your personal travel bucket list.</p>
+</div>
+</section>
+
+<div class="container my-5">
+<div class="summary d-flex justify-content-between align-items-center mb-4">
+<div>
+<h4 class="mb-1">Saved Places</h4>
+<small class="text-muted">Places added from Destinations page</small>
+</div>
+<div class="text-end">
+<h2 id="count">0</h2>
+<button class="btn btn-outline-danger btn-sm" onclick="clearAll()">Clear All</button>
+</div>
+</div>
+
+<div class="row g-4" id="placeContainer"></div>
+
+<div id="empty" class="empty">
+<h3>No places added yet 📍</h3>
+<p>Go to <b>Destinations</b> and click <b>Add Place</b>.</p>
+</div>
+</div>
+
+<footer class="footer text-white text-center py-4">
+© 2026 Wanderlust
+</footer>
+
+<script>
+function loadPlaces(){
+const list=JSON.parse(localStorage.getItem("savedPlaces")||"[]");
+const container=document.getElementById("placeContainer");
+const empty=document.getElementById("empty");
+container.innerHTML="";
+document.getElementById("count").innerText=list.length;
+
+if(list.length===0){
+empty.style.display="block";
+return;
+}
+empty.style.display="none";
+
+list.forEach((p,index)=>{
+container.innerHTML+=`
+<div class="col-md-4">
+<div class="card h-100 shadow-sm">
+<img src="${p.image}" class="card-img-top">
+<div class="card-body">
+<span class="badge badge-place mb-2">${p.title}</span>
+<p class="text-muted">${p.description}</p>
+<button class="btn btn-danger remove-btn" onclick="removePlace(${index})">Remove</button>
+</div>
+</div>
+</div>`;
+});
+}
+
+function removePlace(i){
+let list=JSON.parse(localStorage.getItem("savedPlaces")||"[]");
+list.splice(i,1);
+localStorage.setItem("savedPlaces",JSON.stringify(list));
+document.getElementById("logoutBtn").addEventListener("click",function(){
+sessionStorage.removeItem("isLoggedIn");
+alert("Logged out successfully.");
+window.location.href="index.html";
+});
+loadPlaces();
+}
+
+function clearAll(){
+if(confirm("Remove all saved places?")){
+localStorage.removeItem("savedPlaces");
+document.getElementById("logoutBtn").addEventListener("click",function(){
+sessionStorage.removeItem("isLoggedIn");
+alert("Logged out successfully.");
+window.location.href="index.html";
+});
+loadPlaces();
+}
+}
+document.getElementById("logoutBtn").addEventListener("click",function(){
+sessionStorage.removeItem("isLoggedIn");
+alert("Logged out successfully.");
+window.location.href="index.html";
+});
+loadPlaces();
+</script>
+
+</body>
+</html>
