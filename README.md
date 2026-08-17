@@ -113,4 +113,5 @@ Open `index.html` in your browser (or use a live server extension) to access the
 
 ## 📜 License
 
+## Authors : Swaroop Divya Gauri Raj
 This project is open-source and available under the **MIT License**.
