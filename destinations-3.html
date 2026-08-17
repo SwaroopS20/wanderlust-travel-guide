@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust | Destinations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Wanderlust</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="destinations.html">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="addplace.html">Add Place</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold">Explore India's Best Destinations</h1>
+            <p class="lead text-muted">Discover beautiful cities, historical monuments, beaches, hill stations and unforgettable experiences.</p>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search a city...">
+                        <button class="btn btn-warning fw-bold">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Grid -->
+    <div class="container my-5" id="destinations">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-dark">Featured Destinations</h2>
+            <p class="text-muted">Handpicked Wonderful locations for you.</p>
+        </div>
+        <div class="row g-4" id="card-container">
+            <!-- Mumbai Card -->
+            <div class="col-md-4 city-card" data-city="Mumbai">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Mumbai</span>
+                        <p class="card-text text-muted">Mumbai is the financial capital of India, famous for its colonial architecture, beaches, street food, Bollywood, and vibrant nightlife.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="1">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="1">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Delhi Card -->
+            <div class="col-md-4 city-card" data-city="Delhi">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://assets.cntraveller.in/photos/671a2eb0f88bf53d6351b831/2:1/w_2560%2Cc_limit/GettyImages-1096019794.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Delhi</span>
+                        <p class="card-text text-muted">Delhi is India's capital city, known for its rich history, Mughal monuments, bustling markets, and delicious street food.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="2">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="2">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Goa Card -->
+            <div class="col-md-4 city-card" data-city="Goa">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Goa</span>
+                        <p class="card-text text-muted">Goa is India's beach paradise, famous for its sandy beaches, Portuguese heritage, churches, seafood, and nightlife.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="3">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="3">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Jaipur Card -->
+            <div class="col-md-4 city-card" data-city="Jaipur">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-city-1-hero?qlt=82&ts=1742200253577" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Jaipur</span>
+                        <p class="card-text text-muted">Jaipur, the Pink City, is known for its majestic forts, palaces, vibrant bazaars, and rich Rajasthani culture.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="4">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="4">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Agra Card -->
+            <div class="col-md-4 city-card" data-city="Agra">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/16/4a/45/a5.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Agra</span>
+                        <p class="card-text text-muted">Agra is home to the iconic Taj Mahal, a UNESCO World Heritage site, and is known for its Mughal architecture and rich history.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="5">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="5">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Udaipur Card -->
+            <div class="col-md-4 city-card" data-city="Udaipur">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://preview.redd.it/udaipur-city-palace-16th-century-fort-udaipur-india-v0-rjjjmxwti8z41.png?width=2288&format=png&auto=webp&s=2c921eefd54796b2c1d0d4fd1b421add747aa160" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Udaipur</span>
+                        <p class="card-text text-muted">Udaipur, the City of Lakes, is known for its stunning palaces, lakes, and rich cultural heritage.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="6">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="6">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Darjeeling Card -->
+            <div class="col-md-4 city-card" data-city="Darjeeling"> 
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVfhXl0zwUQCTEpOU0cSOU3xIcg_4-QKBarL6-e9vkd5l7zb3_ivplLxy&s=10" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Darjeeling</span>
+                        <p class="card-text text-muted">Darjeeling, nestled in the Himalayas, is famous for its tea plantations, panoramic views of the mountains, and the Darjeeling Himalayan Railway.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="7">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="7">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Shimla Card -->
+            <div class="col-md-4 city-card" data-city="Shimla">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1742171983523" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Shimla</span>
+                        <p class="card-text text-muted">Shimla, the capital of Himachal Pradesh, is a hill station known for its colonial architecture, scenic beauty, and pleasant climate.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="8">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="8">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Rishikesh Card -->
+            <div class="col-md-4 city-card" data-city="Rishikesh">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="https://assets.cntraveller.in/photos/6616741d35022694df6d7554/16:9/w_2560%2Cc_limit/D3R4PJ.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Rishikesh</span>
+                        <p class="card-text text-muted">Rishikesh, known as the Yoga Capital of the World, is a spiritual destination and a hub for adventure sports on the banks of the Ganges.</p>
+                        <div class="d-flex gap-2">
+<button class="btn btn-outline-dark btn-sm view-details-btn" data-id="9">View Details</button>
+<button class="btn btn-warning btn-sm add-place-btn" data-id="9">Add Place</button>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required Auth Gate Modal (With Login & Signup Tabs) -->
+    <div class="modal fade" id="destLoginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark border-0 pb-0">
+                    <ul class="nav nav-tabs w-100" id="destAuthTabs" role="tablist">
+                        <li class="nav-item w-50">
+                            <button class="nav-link active text-dark bg-light fw-bold w-100" id="dest-login-tab" data-bs-toggle="tab" data-bs-target="#dest-login-panel" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item w-50">
+                            <button class="nav-link text-white fw-bold w-100" id="dest-signup-tab" data-bs-toggle="tab" data-bs-target="#dest-signup-panel" type="button" role="tab">Sign Up</button>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body tab-content">
+                    <!-- Login Subpanel -->
+                    <div class="tab-pane fade show active" id="dest-login-panel" role="tabpanel">
+                        <p class="text-danger fw-semibold small mt-2">Log in to view the budget, attractions, and optimal durations.</p>
+                        <form id="destLoginForm">
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="destLoginEmail" class="form-control" placeholder="enter your email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" id="destLoginPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Login & View Details</button>
+                        </form>
+                    </div>
+
+                    <!-- Sign Up Subpanel -->
+                    <div class="tab-pane fade" id="dest-signup-panel" role="tabpanel">
+                        <p class="text-muted small mt-2">Sign up instantly to unlock the entire destinations directory.</p>
+                        <form id="destSignupForm">
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="destSignName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" id="destSignEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Create Password</label>
+                                <input type="password" id="destSignPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Register & Continue</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h4 class="modal-title fw-bold" id="modalTitle"></h4>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" class="img-fluid rounded mb-4 w-100" style="height:300px; object-fit:contain;">
+                    <p id="modalDescription" class="text-muted"></p>
+                    <hr>
+                    <h5>⭐ Top Attractions</h5>
+                    <ul id="modalAttractions"></ul>
+                    <hr>
+                    <h5>🍴 Famous Food</h5>
+                    <p id="modalFood"></p>
+                    <hr>
+                    <h5>📅 Best Time To Visit</h5>
+                    <p id="modalTime"></p>
+                    <hr>
+                    <h5>💰 Average Budget</h5>
+                    <p id="modalBudget"></p>
+                    <hr>
+                    <h5>🚆 How To Reach</h5>
+                    <p id="modalReach"></p>
+                    <hr>
+                    <h5>🕒 Ideal Trip Duration</h5>
+                    <p id="modalDuration"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1">© 2026 Wanderlust. All Rights Reserved.</p>
+            <small>Designed with ❤️ for Travelers</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+
+
+
+</script>
+    <script>
+        const destinations = {
+            1:{ title:"Mumbai", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSskNpgdJ2WkjEovxWGAtQGtFcaBrGKYhAcS4o8wUge4A&s=10", description:"Mumbai is the financial capital of India, famous for Bollywood, colonial architecture, beaches, shopping and nightlife.", attractions:["Gateway of India","Marine Drive","Juhu Beach","Elephanta Caves","Siddhivinayak Temple","Chhatrapati Shivaji Maharaj Terminus"], food:"Vada Pav, Pav Bhaji, Bombay Sandwich, Bhel Puri", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Mumbai is well connected by air, rail and road.", duration:"3 to 4 Days" },
+            2:{ title:"Delhi", image:"https://assets.cntraveller.in/photos/671a2eb0f88bf53d6351b831/2:1/w_2560%2Cc_limit/GettyImages-1096019794.jpg", description:"Delhi is India's capital city, blending ancient heritage with modern attractions.", attractions:["India Gate","Red Fort","Qutub Minar","Lotus Temple","Akshardham","Humayun's Tomb"], food:"Chole Bhature, Paratha, Kebabs, Chaat", time:"October to March", budget:"₹7,000 – ₹14,000", reach:"Well connected by metro, airport, rail and road.", duration:"2 to 3 Days" },
+            3:{ title:"Goa", image:"https://images.openai.com/static-rsc-4/JFFhvKhHG7mpTJ1mhiCPC6aGmIBg78ifWZUutSzlqsLq8upyqqWLqmff-84j7--cTIYZzsqFDI_3bMvqx_5BAC0WkFUqiPjSEOBQ3KgNxFDcK9DuYPRSgheCIUFzWWg6MgLPJWVQrzqLqaIgaIScNED3UNDbsd07taaA5hwmAlQXGSXBP-orMBlVFaqhHKG7?purpose=fullsize", description:"Goa is India's beach paradise, famous for sandy beaches, Portuguese heritage, seafood and nightlife.", attractions:["Baga Beach","Calangute Beach","Dudhsagar Falls","Fort Aguada","Basilica of Bom Jesus","Anjuna Beach"], food:"Goan Fish Curry, Prawn Balchao, Bebinca, Vindaloo", time:"November to February", budget:"₹10,000 – ₹18,000", reach:"Goa is connected by Dabolim & Mopa Airport, railways and highways.", duration:"3 to 5 Days" },
+            4:{ title:"Jaipur", image:"https://s7ap1.scene7.com/is/image/incredibleindia/hawa-mahal-jaipur-rajasthan-city-1-hero?qlt=82&ts=1742200253577", description:"Jaipur, the Pink City of India, is famous for royal palaces, forts, colorful markets and Rajasthani culture.", attractions:["Hawa Mahal","Amber Fort","City Palace","Jantar Mantar","Nahargarh Fort","Jal Mahal"], food:"Dal Baati Churma, Ghewar, Kachori, Laal Maas", time:"October to March", budget:"₹8,000 – ₹15,000", reach:"Connected by Jaipur International Airport, railway and highways.", duration:"2 to 3 Days" },
+            5:{ title:"Agra", image:"https://media.tacdn.com/media/attractions-splice-spp-674x446/16/4a/45/a5.jpg", description:"Agra is home to the iconic Taj Mahal and is famous for Mughal architecture and history.", attractions:["Taj Mahal","Agra Fort","Fatehpur Sikri","Mehtab Bagh","Itmad-ud-Daulah"], food:"Petha, Bedai, Mughlai Cuisine, Dalmoth", time:"October to March", budget:"₹6,000 – ₹12,000", reach:"Well connected by airport, railway and Yamuna Expressway.", duration:"2 Days" },
+            6:{ title:"Udaipur", image:"https://preview.redd.it/udaipur-city-palace-16th-century-fort-udaipur-india-v0-rjjjmxwti8z41.png?width=2288&format=png&auto=webp&s=2c921eefd54796b2c1d0d4fd1b421add747aa160", description:"Udaipur, the City of Lakes, is famous for royal palaces, lakes and romantic views.", attractions:["City Palace","Lake Pichola","Jag Mandir","Fateh Sagar Lake","Sajjangarh Palace"], food:"Dal Baati, Gatte Ki Sabzi, Kachori", time:"September to March", budget:"₹8,000 – ₹16,000", reach:"Connected by Maharana Pratap Airport, railway and road.", duration:"2 to 3 Days" },
+            7:{ title:"Darjeeling", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUVfhXl0zwUQCTEpOU0cSOU3xIcg_4-QKBarL6-e9vkd5l7zb3_ivplLxy&s=10", description:"Darjeeling is famous for tea gardens, Himalayan views and toy train rides.", attractions:["Tiger Hill","Batasia Loop","Tea Gardens","Peace Pagoda","Toy Train"], food:"Momos, Thukpa, Noodles, Tea", time:"March to May & October to December", budget:"₹9,000 – ₹17,000", reach:"Nearest airport is Bagdogra, then taxi/train.", duration:"3 Days" },
+            8:{ title:"Shimla", image:"https://s7ap1.scene7.com/is/image/incredibleindia/cityscape-of-shimla-himachal-pradesh-city-1-hero?qlt=82&ts=1742171983523", description:"Shimla is a beautiful hill station famous for snow, colonial buildings and scenic mountains.", attractions:["The Ridge","Mall Road","Jakhoo Temple","Kufri","Christ Church"], food:"Madra, Siddu, Chha Gosht", time:"March to June & December to February", budget:"₹8,000 – ₹15,000", reach:"Connected by road, Kalka-Shimla railway and nearby airport.", duration:"3 Days" },
+            9:{ title:"Rishikesh", image:"https://assets.cntraveller.in/photos/6616741d35022694df6d7554/16:9/w_2560%2Cc_limit/D3R4PJ.jpg", description:"Rishikesh is known as the Yoga Capital of the World and is famous for river rafting and spirituality.", attractions:["Laxman Jhula","Ram Jhula","Triveni Ghat","Neelkanth Temple","River Rafting"], food:"Aloo Puri, Chole Bhature, Lassi, North Indian Thali", time:"September to April", budget:"₹6,000 – ₹12,000", reach:"Nearest airport is Dehradun; well connected by road and rail.", duration:"2 to 3 Days" }
+        };
+
+        let pendingCardId = null; 
+        const detailsModal = new bootstrap.Modal(document.getElementById("detailsModal"));
+        const destLoginModal = new bootstrap.Modal(document.getElementById("destLoginModal"));
+
+        function getUsersFromStorage() {
+            const users = localStorage.getItem("mock_users");
+            return users ? JSON.parse(users) : [];
+        }
+
+        // Click Handler for Cards
+        document.querySelectorAll(".view-details-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const currentId = this.dataset.id;
+                const authenticated = sessionStorage.getItem("isLoggedIn") === "true";
+
+                if (authenticated) {
+                    showDetails(currentId);
+                } else {
+                    pendingCardId = currentId; 
+                    destLoginModal.show();
+                }
+            });
+        });
+
+        // HANDLE DESTINATIONS REGISTRATION (CONNECTED TO BACKEND)
+document.getElementById("destSignupForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const fullname = document.getElementById("destSignName").value;
+    const email = document.getElementById("destSignEmail").value.toLowerCase().trim();
+    const password = document.getElementById("destSignPassword").value;
+
+    try {
+        // Send data directly to PostgreSQL backend
+        const response = await fetch("http://localhost:5000/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ fullname, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Display visual notification message
+            alert("Signup successful! Welcome, " + fullname);
+            
+            // Log user in and save token
+            sessionStorage.setItem("isLoggedIn", "true");
+            if (data.token) {
+                sessionStorage.setItem("token", data.token);
+            }
+
+            destLoginModal.hide();
+
+            // Open place details if user clicked from a destination card
+            if (pendingCardId) {
+                showDetails(pendingCardId);
+                pendingCardId = null;
+            }
+        } else {
+            alert(data.message || "Registration failed. Try again.");
+        }
+    } catch (error) {
+        console.error("Error during signup:", error);
+        alert("Cannot connect to server. Ensure your backend server is running on port 5000!");
+    }
+});
+
+        // HANDLE DESTINATIONS LOGIN VERIFICATION (CONNECTED TO BACKEND)
+document.getElementById("destLoginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById("destLoginEmail").value.toLowerCase().trim();
+    const password = document.getElementById("destLoginPassword").value;
+
+    try {
+        const response = await fetch("http://localhost:5000/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Login Successful!");
+            sessionStorage.setItem("isLoggedIn", "true");
+            if (data.token) {
+                sessionStorage.setItem("token", data.token);
+            }
+
+            destLoginModal.hide();
+
+            if (pendingCardId) {
+                showDetails(pendingCardId);
+                pendingCardId = null; 
+            }
+        } else {
+            alert(data.message || "Invalid credentials.");
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        alert("Server connection error.");
+    }
+});
+        // Population Engine
+        function showDetails(id) {
+            const place = destinations[id];
+            document.getElementById("modalTitle").innerText = place.title;
+            document.getElementById("modalImage").src = place.image;
+            document.getElementById("modalDescription").innerText = place.description;
+            document.getElementById("modalFood").innerText = place.food;
+            document.getElementById("modalTime").innerText = place.time;
+            document.getElementById("modalBudget").innerText = place.budget;
+            document.getElementById("modalReach").innerText = place.reach;
+            document.getElementById("modalDuration").innerText = place.duration;
+
+            let attractionHTML = "";
+            place.attractions.forEach(function(item){
+                attractionHTML += `<li>${item}</li>`;
+            });
+            document.getElementById("modalAttractions").innerHTML = attractionHTML;
+            detailsModal.show();
+        }
+
+        // Search engine filter
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("keyup", function () {
+            const value = this.value.toLowerCase();
+            document.querySelectorAll(".city-card").forEach(card => {
+                const city = card.dataset.city.toLowerCase();
+                if (city.includes(value)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    
+
+// Add Place Feature
+document.querySelectorAll(".add-place-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+
+        // Check whether user is logged in
+        if (sessionStorage.getItem("isLoggedIn") !== "true") {
+            alert("Please login before adding this place.");
+            destLoginModal.show();     // Opens your existing login popup
+            return;
+        }
+
+        // User is logged in
+        const id = this.dataset.id;
+        const p = destinations[id];
+
+        let saved = JSON.parse(localStorage.getItem("savedPlaces") || "[]");
+
+        if (saved.find(place => place.title === p.title)) {
+            alert(p.title + " is already added.");
+            return;
+        }
+
+        saved.push({
+            id: id,
+            title: p.title,
+            image: p.image,
+            description: p.description
+        });
+
+        localStorage.setItem("savedPlaces", JSON.stringify(saved));
+        alert(p.title + " added successfully!");
+    });
+});
+
+</script>
+</body>
+</html>
